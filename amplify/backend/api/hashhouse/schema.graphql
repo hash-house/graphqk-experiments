@@ -1,0 +1,77 @@
+type Simple @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+}
+
+type TrailAssignment @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  trailID: ID! @index(name: "byTrail")
+  userID: ID! @index(name: "byUser")
+}
+
+type Kennel @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  geolocation: String!
+  description: String!
+  start: AWSTimestamp
+  created_by: String
+  updated_by: String
+  created_at: AWSTimestamp
+  updated_at: AWSTimestamp
+  Users: [User] @manyToMany(relationName: "KennelUser")
+  logo: String
+  banner_image: String
+  Events: [Event] @manyToMany(relationName: "KennelEvent")
+}
+
+type Trail @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  details: String!
+  description: String!
+  start: AWSTimestamp!
+  latitude: Float!
+  longitude: Float!
+  created_by: String!
+  updated_by: String!
+  created_at: AWSTimestamp!
+  updated_at: AWSTimestamp!
+  eventID: ID @index(name: "byEvent")
+  images: [String]
+  features: [String]
+  TrailAssignments: [TrailAssignment] @hasMany(indexName: "byTrail", fields: ["id"])
+}
+
+type Event @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  start: AWSTimestamp!
+  end: AWSTimestamp
+  location: String!
+  latitude: Float!
+  longitude: Float!
+  name: String!
+  description: String!
+  created_by: String!
+  updated_by: String!
+  created_at: AWSTimestamp!
+  updated_at: AWSTimestamp!
+  Trails: [Trail] @hasMany(indexName: "byEvent", fields: ["id"])
+  users: [User] @manyToMany(relationName: "UserEvent")
+  images: [String]
+  kennels: [Kennel] @manyToMany(relationName: "KennelEvent")
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  names: AWSJSON!
+  created_by: String!
+  created_at: AWSTimestamp!
+  updated_at: AWSTimestamp!
+  updated_by: String!
+  email: String!
+  EventRegistration: [Event] @manyToMany(relationName: "UserEvent")
+  kennels: [Kennel] @manyToMany(relationName: "KennelUser")
+  avatar: String
+  images: [String]
+  TrailAssignments: [TrailAssignment] @hasMany(indexName: "byUser", fields: ["id"])
+}
+ 

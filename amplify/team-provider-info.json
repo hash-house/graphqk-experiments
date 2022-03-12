@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-hashhouse-staging-13459-authRole",
+      "UnauthRoleArn": "arn:aws:iam::424328483274:role/amplify-hashhouse-staging-13459-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::424328483274:role/amplify-hashhouse-staging-13459-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-hashhouse-staging-13459-deployment",
+      "UnauthRoleName": "amplify-hashhouse-staging-13459-unauthRole",
+      "StackName": "amplify-hashhouse-staging-13459",
+      "StackId": "arn:aws:cloudformation:us-east-1:424328483274:stack/amplify-hashhouse-staging-13459/05f1c700-7411-11ec-b6c3-0ea7d64ce7db",
+      "AmplifyAppId": "d1lri2gwvpuvhc"
+    },
+    "categories": {
+      "auth": {
+        "hashhouse": {}
+      }
+    }
+  }
+}

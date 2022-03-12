@@ -3,14 +3,15 @@
 .idea/*
 .orig
 /*venv/
+/.pytest_cache
 
 #amplify-do-not-edit-begin
-amplify/\#current-cloud-backend
-amplify/.config/local-*
-amplify/logs
-amplify/mock-data
-amplify/backend/amplify-meta.json
-amplify/backend/.temp
+/amplify/\#current-cloud-backend
+/amplify/.config/local-*
+/amplify/logs
+/amplify/mock-data
+/amplify/backend/amplify-meta.json
+/amplify/backend/.temp
 build/
 dist/
 node_modules/
@@ -23,4 +24,5 @@ amplify-gradle-config.json
 amplifytools.xcconfig
 .secret-*
 **.sample
+.eslintignore
 #amplify-do-not-edit-end

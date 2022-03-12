@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3hashhousestoraged1lri2gwvpuvhc",
+  "bucketName": "hashhouse-storage-d1lri2gwvpuvhc",
+  "policyUUID": "fd9ef059",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}
